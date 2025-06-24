@@ -24,6 +24,7 @@ export class TennisGame1 implements TennisGame {
 
   getScore(): string {
     let score: string = '';
+
     if (this.playerOne.score === this.playerTwo.score) {
       switch (this.playerOne.score) {
         case 0:
@@ -39,7 +40,10 @@ export class TennisGame1 implements TennisGame {
           score = 'Deuce';
           break;
       }
-    } else if (this.playerOne.score >= 4 || this.playerTwo.score >= 4) {
+      return score;
+    }
+
+    if (this.playerOne.score >= 4 || this.playerTwo.score >= 4) {
       const minusResult: number = this.playerOne.score - this.playerTwo.score;
       if (minusResult === 1) score = 'Advantage player1';
       else if (minusResult === -1) score = 'Advantage player2';
@@ -66,6 +70,7 @@ export class TennisGame1 implements TennisGame {
         }
       }
     }
+    
     return score;
   }
 }
