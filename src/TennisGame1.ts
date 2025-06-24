@@ -25,11 +25,15 @@ export class TennisGame1 implements TennisGame {
 
     if (playerOneScore >= 4 || playerTwoScore >= 4) {
       let score: string = '';
-      const minusResult: number = playerOneScore - playerTwoScore;
-      if (minusResult === 1) score = 'Advantage player1';
-      else if (minusResult === -1) score = 'Advantage player2';
-      else if (minusResult >= 2) score = 'Win for player1';
-      else score = 'Win for player2';
+      const difference: number = Math.abs(playerOneScore - playerTwoScore);
+      const playerWithHigherScore = (playerOneScore > playerTwoScore) ? this.playerOne : this.playerTwo;
+
+      if (difference > 1) {
+        score = `Win for ${playerWithHigherScore.name}`;
+      } else {
+        score = `Advantage ${playerWithHigherScore.name}`;
+      }
+
       return score;
     } 
 
