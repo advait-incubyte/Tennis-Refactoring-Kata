@@ -1,4 +1,4 @@
-import type { TennisGame } from './TennisGame';
+import type { TennisGame } from './types/player';
 
 export class TennisGame2 implements TennisGame {
   P1point: number = 0;

@@ -1,4 +1,4 @@
-import type { TennisGame } from './TennisGame';
+import type { TennisGame } from './types/player';
 
 export class TennisGame4  implements TennisGame {
 

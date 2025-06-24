@@ -1,19 +1,25 @@
-import type { Player, TennisGame } from './TennisGame';
+import type { TennisGame } from './types/tennis-game';
+import type { Player } from './types/player';
+import { PLAYERS } from './types/player';
 
 export class TennisGame1 implements TennisGame {
   private playerOne: Player;
   private playerTwo: Player;
 
-  constructor(player1Name: string, player2Name: string) {
-    this.playerOne = { name: player1Name, score: 0 };
-    this.playerTwo = { name: player2Name, score: 0 };
+  constructor(playerOneName: string, playerTwoName: string) {
+    this.playerOne = { name: playerOneName, score: 0 };
+    this.playerTwo = { name: playerTwoName, score: 0 };
   }
 
   grantPointToPlayer(playerName: string): void {
-    if (playerName === 'player1')
-      this.playerOne.score += 1;
-    else
-      this.playerTwo.score += 1;
+    switch (playerName) {
+      case PLAYERS.PLAYER_ONE:
+        this.playerOne.score += 1;
+        break;
+      case PLAYERS.PLAYER_TWO:
+        this.playerTwo.score += 1;
+        break;
+    }
   }
 
   getScore(): string {

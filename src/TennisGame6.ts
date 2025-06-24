@@ -1,4 +1,4 @@
-import type { TennisGame } from './TennisGame';
+import type { TennisGame } from './types/player';
 
 export class TennisGame6 implements TennisGame {
   private player2Name : string;
