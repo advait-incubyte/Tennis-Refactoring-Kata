@@ -102,7 +102,7 @@ export class TennisGame6 implements TennisGame {
 
   }
 
-  wonPoint(playerName: string): void {
+  grantPointToPlayer(playerName: string): void {
     if (playerName === 'player1')
       this.player1Score += 1;
     else

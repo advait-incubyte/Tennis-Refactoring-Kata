@@ -1,4 +1,4 @@
 export interface TennisGame {
-  wonPoint(playerName: string): void;
+  grantPointToPlayer(playerName: string): void;
   getScore(): string;
 }

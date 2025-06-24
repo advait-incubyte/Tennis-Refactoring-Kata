@@ -16,10 +16,10 @@ function checkScore(game: TennisGame, player1Score: number, player2Score: number
   const highestScore: number = Math.max(player1Score, player2Score);
   for (let i = 0; i < highestScore; i++) {
     if (i < player1Score) {
-      game.wonPoint('player1');
+      game.grantPointToPlayer('player1');
     }
     if (i < player2Score) {
-      game.wonPoint('player2');
+      game.grantPointToPlayer('player2');
     }
   }
   expect(game.getScore()).toBe(expectedScore);

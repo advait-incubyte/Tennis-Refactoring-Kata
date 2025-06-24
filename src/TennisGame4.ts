@@ -44,7 +44,7 @@ export class TennisGame4  implements TennisGame {
         return this.serverScore >= 3 && this.receiverScore >= 3 && (this.serverScore === this.receiverScore);
     }
 
-    wonPoint(playerName: string): void {
+    grantPointToPlayer(playerName: string): void {
         if (playerName === 'player1')
             this.serverScore += 1;
         else
