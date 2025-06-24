@@ -1,6 +1,5 @@
 import type { TennisGame } from './types/tennis-game';
 import type { Player } from './types/player';
-import { PLAYERS } from './types/player';
 
 export class TennisGame1 implements TennisGame {
   private playerOne: Player;
@@ -12,14 +11,8 @@ export class TennisGame1 implements TennisGame {
   }
 
   grantPointToPlayer(playerName: string): void {
-    switch (playerName) {
-      case PLAYERS.PLAYER_ONE:
-        this.playerOne.score += 1;
-        break;
-      case PLAYERS.PLAYER_TWO:
-        this.playerTwo.score += 1;
-        break;
-    }
+    const player = this.getPlayerFromName(playerName);
+    player.score += 1;
   }
 
   getScore(): string {
@@ -47,5 +40,9 @@ export class TennisGame1 implements TennisGame {
   private getScoreString(score: number): string {
     const scorePointsToString = ['Love', 'Fifteen', 'Thirty', 'Forty'];
     return scorePointsToString[score];
+  }
+
+  private getPlayerFromName(name: string): Player {
+    return this.playerOne.name === name ? this.playerOne : this.playerTwo;
   }
 }
